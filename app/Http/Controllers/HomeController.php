@@ -217,7 +217,15 @@ class HomeController extends Controller
     }
 
     public function ajaxGetTripDetail(Request $request, $tripId){
-        return Trip::findOrFail($tripId)->toJson();
+        $trip = Trip::findOrFail($tripId);
+
+        $trip->passengerRate = isset($trip->passengerRating->rate_)?$trip->passengerRating->rate_:null;
+        $trip->passengerComment = isset($trip->passengerRating->comments_)?$trip->passengerRating->comments_:null;
+
+        $trip->driverRate = isset($trip->driverRating->rate_)?$trip->driverRating->rate_:null;
+        $trip->driverComment = isset($trip->driverRating->comments_)?$trip->driverRating->comments_:null;
+
+        return $trip->toJson();
 
     }
 

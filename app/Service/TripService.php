@@ -40,20 +40,19 @@ class TripService{
                 foreach ($driver_list as $row) {
                     $history_flag = false;
                     foreach ($history_driver_list as $item) {
-                        if($item == $row){
+                        if($item == $row[0]){
                             $history_flag = true;
                             break;
                         }
                     }
                     if($history_flag == false){
-                        $driver_user_id = $row;
+                        $driver_user_id = $row[0];
                         $tripRequest->history_driver_ .= ";".$driver_user_id;
                         $tripRequest->save();
                         break;
                     }
                 }
             }
-            
             if($driver_user_id){
                 $data = [
                     'data' => [
@@ -118,7 +117,7 @@ class TripService{
         $dt_start = Carbon::parse($trip->start_time_);
         $dt_end = Carbon::parse($trip->end_time_);
         $calcPrice = $trip->base_charge_ + $trip->price_per_km_ * $trip->distance_ + 
-                    $trip->price_per_min_ * $dt_end->diffInMinutes($dt_start);
+                    $trip->price_per_min_ * ($dt_end->diffInMinutes($dt_start)+1);
         $totalPrice = $calcPrice < $trip->price_minimum_ ? $trip->price_minimum_ : $calcPrice;
         return $totalPrice;
     }

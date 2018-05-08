@@ -142,6 +142,20 @@ $(".tripDetailBtn").click(function(){
             $('#priceMin').html(data.price_minimum_);
             $('#promotion').html(data.promotion_code_);
 
+            if(data.passengerRate){
+                $('#passengerRatingVal').css('width', (1-data.passengerRate/5)*100 + '%');
+            }else{
+                $('#passengerRatingVal').css('width', '0%');
+            }
+            
+            $('#passengerComments').html(data.passengerComment);
+            if(data.driverRate){
+                $('#driverRatingVal').css('width', (1-data.driverRate/5)*100 + '%');
+            }else{
+                $('#driverRatingVal').css('width', '0%');
+            }
+            $('#driverComments').html(data.driverComment);
+
             $('#tripModal').modal('show');
         },
         error : function() {

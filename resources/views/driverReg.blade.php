@@ -9,7 +9,7 @@
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Mobile</th>
-          <th scope="col">License</th>
+          <th scope="col">Licence</th>
           <th scope="col">Vehicle</th>
           <th scope="col">Operation</th>
         </tr>

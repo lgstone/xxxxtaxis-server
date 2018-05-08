@@ -67,7 +67,7 @@
                             <div class="card-header">
                                 <ul class="nav nav-pills">
                                   <li class="nav-item">
-                                    <a class="nav-link {{Helper::set_active('channel/passenger')}}" href="/channel/passenger">Passenger</a>
+                                    <a class="nav-link {{Helper::set_active('channel/passenger')}}" href="/channel/passenger">Rider</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link {{Helper::set_active('channel/driver')}}" href="/channel/driver">Driver</a>

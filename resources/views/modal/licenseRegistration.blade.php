@@ -12,7 +12,7 @@
           <table class="table">
             <tbody>
               <tr>
-                <th scope="row">License</th>
+                <th scope="row">Licence</th>
                 <td id="licenseNo"></td>
               </tr>
               <tr>

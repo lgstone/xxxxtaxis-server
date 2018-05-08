@@ -28,11 +28,11 @@
                 <td id="dest"></td>
               </tr>
               <tr>
-                <th scope="row">Base Charge</th>
+                <th scope="row">Base Charge (NZD)</th>
                 <td id="baseCharge"></td>
               </tr>
               <tr>
-                <th scope="row">Price per KM</th>
+                <th scope="row">Price per KM (NZD)</th>
                 <td id="pricePerKM"></td>
               </tr>
               <tr>
@@ -40,12 +40,61 @@
                 <td id="pricePerMin"></td>
               </tr>
               <tr>
-                <th scope="row">Price Minimum</th>
+                <th scope="row">Price Minimum (NZD)</th>
                 <td id="priceMin"></td>
               </tr>
               <tr>
                 <th scope="row">Promotion Code</th>
                 <td id="promotion"></td>
+              </tr>
+              <tr>
+                <th scope="row">Rider Rating</th>
+                <td id="passengerRating">
+                  <div class="star-rating">
+                    <div class="star-rating-top" id="passengerRatingVal" >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="star-rating-bottom">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Rider Comments</th>
+                <td id="passengerComments"></td>
+              </tr>
+              <tr>
+                <th scope="row">Driver Rating</th>
+                <td id="driverRating">
+                  <div class="star-rating">
+                    <div class="star-rating-top" id="driverRatingVal">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="star-rating-bottom">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                  </div>                </td>
+              </tr>
+              <tr>
+                <th scope="row">Driver Comments</th>
+                <td id="driverComments"></td>
               </tr>
             </tbody>
           </table>

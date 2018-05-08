@@ -9,8 +9,9 @@
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Mobile</th>
-          <th scope="col">Balance(NZD)</th>
-          <th scope="col">License</th>
+          <th scope="col">Balance (NZD)</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Licence</th>
           <th scope="col">Vehicle</th>
           <th scope="col">Online Status</th>
           <th scope="col">Trip History</th>
@@ -24,6 +25,24 @@
           <td>{{$user->email}}</td>
           <td>{{$user->mobile}}</td>
           <td>{{$user->balance}}</td>
+          <td width="20%">
+            <div class="star-rating">
+                  <div class="star-rating-top" style="width:{{(1 - $user->driver->overall_rate_/5)*100}}%">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+                  <div class="star-rating-bottom">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </div>
+          </td>
           <td>
             <a href="/ajax/getDriverDetail/{{$user->id}}" class="btn btn-primary btn-sm driverDetailBtn" id="driverDetailBtn" data-toggle="modal" data-target="#licenseModal">
               Detail

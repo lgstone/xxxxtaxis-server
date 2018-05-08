@@ -5,18 +5,18 @@
 <div class="card-body">
     @if(isset($user))
       @if($type == 'driver')
-        <div class="alert alert-secondary">Trip details of Driver <font color="green">{{ucfirst($user->first_name)}} {{ucfirst($user->last_name)}}</font></div>
+        <div class="alert alert-secondary">Trip details of driver <font color="green">{{ucfirst($user->first_name)}} {{ucfirst($user->last_name)}}</font></div>
       @elseif($type == 'passenger')
-        <div class="alert alert-secondary">Trip details of Passenger <font color="green"> {{ucfirst($user->first_name)}} {{ucfirst($user->last_name)}}</font></div>
+        <div class="alert alert-secondary">Trip details of rider <font color="green"> {{ucfirst($user->first_name)}} {{ucfirst($user->last_name)}}</font></div>
       @endif
     @endif
     <table class="table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">Passenger</th>
+          <th scope="col">Rider</th>
           <th scope="col">Driver</th>
-          <th scope="col">Distance(KM)</th>
-          <th scope="col">Total Price(NZD)</th>
+          <th scope="col">Distance (KM)</th>
+          <th scope="col">Total Price (NZD)</th>
           <th scope="col">Details</th>
         </tr>
       </thead>

@@ -90,10 +90,11 @@ class DriverController extends Controller{
         }
 
         $tripRequest = TripRequest::findOrFail($request->trip_request_id);
+        $passenger = Passenger::findOrFail($tripRequest->passenger_id_);
         if($request->op == 'accept'){
             //create order
             $trip_id = TripService::createTripOrder($request->trip_request_id, Auth::user()->driver->id_);
-            $passenger = Passenger::findOrFail($tripRequest->passenger_id_);
+            
             $driver = Driver::findOrFail(Auth::user()->driver->id_);
             $driver_user = Auth::user();
 
@@ -121,8 +122,17 @@ class DriverController extends Controller{
             //call another driver
             $ret = TripService::sendRequest($tripRequest->id_, $tripRequest->history_driver_);
             if(!$ret){
-                return response()->json(config('constant.unknownErrResponse'));
+                //send back msg to passenger
+                $data = [
+                    'data' => [
+                        'trip_id' => null,
+                        'info' => 'no driver available',
+                    ],
+                    'event' => "response_trip_".$passenger->user->id,
+                ];
+                Redis::publish('passengerChannel', json_encode($data));
             }
+            return response()->json(config('constant.successResponse'));
         }else{
             return response()->json(config('constant.unknownErrResponse'));
         }

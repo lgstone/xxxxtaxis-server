@@ -31,4 +31,12 @@ class Trip extends Model
         return $this->hasOne('App\Model\Driver', 'id_','driver_id_');
     }
 
+    public function passengerRating(){
+        return $this->hasOne('App\Model\Review', 'trip_id_')->where('for_driver_', 0);
+    }
+
+    public function driverRating(){
+        return $this->hasOne('App\Model\Review', 'trip_id_')->where('for_driver_', 1);
+    }
+
 }
